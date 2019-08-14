@@ -1,13 +1,18 @@
-pipeline{
-	agent any
-	stage('build'){
-		steps {
-			sh 'dotnet build SmartRefridgerator -p:configuration=release -v:n'
-		}
-	}
-	stage('test'){
-		steps {
-			sh 'dotnet test'
-		}
-	}
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'dotnet build SmartRefridgerator.sln -p:configuration=release -v:n' 
+                
+            }
+        }
+	stage('Test') {
+            steps {
+                sh 'dotnet test' 
+                
+            }
+        }
+    }
 }
