@@ -2,7 +2,7 @@ pipeline{
 	agent any
 	stage('build'){
 		steps {
-			sh 'dotnet build -p:configuration release=-v:n'
+			sh 'dotnet build SampleApi.sln -p:configuration=release -v:n'
 		}
 	}
 	stage('test'){
